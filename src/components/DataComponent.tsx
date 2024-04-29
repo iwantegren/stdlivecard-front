@@ -34,17 +34,20 @@ const DataComponent = () => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Server is alive</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      <button
-        type="button"
-        className="btn btn-info"
-        disabled={loading}
-        onClick={loadData}
-      >
-        Update Status
-      </button>
+    <div className="card">
+      <div className="card-header">Backend response</div>
+      <div className="card-body">
+        <h5>Server is alive</h5>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <button
+          type="button"
+          className="btn btn-info"
+          disabled={loading}
+          onClick={loadData}
+        >
+          Update Status
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,13 @@
-import DataComponent from "./components/DataComponent";
-// import Dashboard from "./components/DataComponent";
+// import DataComponent from "./components/DataComponent";
+import UserLogin from "./components/UserLogin";
+import "./App.css";
 
 const App = () => {
-  return <DataComponent />;
+  return (
+    <div className="app-container">
+      <UserLogin />
+    </div>
+  );
 };
 
 export default App;
