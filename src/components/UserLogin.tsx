@@ -1,44 +1,39 @@
 import "../App.css";
 
-const UserLogin = () => {
+interface LoginProps {
+  onLogin: () => void;
+}
+
+const UserLogin: React.FC<LoginProps> = ({ onLogin }) => {
   return (
-    <div className="card">
+    <div className="card login-card">
       <div className="card-header">Login</div>
       <div className="card-body">
         <form>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
+            <label htmlFor="inputUser">User name</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
+              id="inputUser"
+              placeholder="Enter name"
             />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
           </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
+          <div className="form-group mt-2">
+            <label htmlFor="inputPassword">Password</label>
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="inputPassword"
               placeholder="Password"
             />
           </div>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="button"
+            className="btn btn-primary mt-3"
+            onClick={onLogin}
+            accessKey="l"
+          >
             Submit
           </button>
         </form>
