@@ -1,15 +1,28 @@
+import { useContext } from "react";
 import "../App.css";
+import { LoginContext, LoginContextType } from "../contexts/LoginContext";
 
-interface LoginProps {
-  onLogin: () => void;
-}
+const UserLogin = () => {
+  const { loginData, setLoginData, onLogin } = useContext(
+    LoginContext
+  ) as LoginContextType;
 
-const UserLogin: React.FC<LoginProps> = ({ onLogin }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (loginData.username === "" || loginData.password === "") {
+      alert("Username and password are required!");
+      return;
+    }
+
+    onLogin();
+  };
+
   return (
     <div className="card login-card">
       <div className="card-header">Login</div>
       <div className="card-body">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="inputUser">User name</label>
             <input
@@ -17,6 +30,10 @@ const UserLogin: React.FC<LoginProps> = ({ onLogin }) => {
               className="form-control"
               id="inputUser"
               placeholder="Enter name"
+              value={loginData.username}
+              onChange={(e) =>
+                setLoginData({ ...loginData, username: e.target.value })
+              }
             />
           </div>
           <div className="form-group mt-2">
@@ -26,14 +43,13 @@ const UserLogin: React.FC<LoginProps> = ({ onLogin }) => {
               className="form-control"
               id="inputPassword"
               placeholder="Password"
+              value={loginData.password}
+              onChange={(e) =>
+                setLoginData({ ...loginData, password: e.target.value })
+              }
             />
           </div>
-          <button
-            type="button"
-            className="btn btn-primary mt-3"
-            onClick={onLogin}
-            accessKey="l"
-          >
+          <button type="submit" className="btn btn-primary mt-3" accessKey="l">
             Submit
           </button>
         </form>

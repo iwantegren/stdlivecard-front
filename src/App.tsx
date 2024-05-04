@@ -2,20 +2,29 @@ import DataComponent from "./components/DataComponent";
 import UserLogin from "./components/UserLogin";
 import "./App.css";
 import { useState } from "react";
+import {
+  EmptyLoginData,
+  LoginContext,
+  LoginData,
+} from "./contexts/LoginContext";
 
 const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [loginData, setLoginData] = useState<LoginData>(new EmptyLoginData());
 
-  const handleLogin = () => setLoggedIn(true);
-  const handleLogout = () => setLoggedIn(false);
+  const onLogin = () => setLoggedIn(true);
+  const onLogout = () => {
+    setLoggedIn(false);
+    setLoginData(new EmptyLoginData());
+  };
 
   return (
     <div className="app-container">
-      {isLoggedIn ? (
-        <DataComponent onLogout={handleLogout} />
-      ) : (
-        <UserLogin onLogin={handleLogin} />
-      )}
+      <LoginContext.Provider
+        value={{ loginData, setLoginData, onLogin, onLogout }}
+      >
+        {isLoggedIn ? <DataComponent /> : <UserLogin />}
+      </LoginContext.Provider>
     </div>
   );
 };
