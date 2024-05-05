@@ -6,7 +6,7 @@ const NavigationHeader = () => {
   const { loginData, onLogout } = useContext(LoginContext) as LoginContextType;
 
   return (
-    <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom fixed-top">
+    <header className="d-flex flex-md-row p-3 border-bottom flex-shrink-0">
       <a
         href="/"
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"

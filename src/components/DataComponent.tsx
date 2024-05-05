@@ -1,6 +1,6 @@
 import * as api from "../services/ApiService";
 import { useState, useEffect } from "react";
-import NavigationHeader from "./NavigationHeader";
+import StatusComponent from "./StatusComponent";
 
 async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -35,9 +35,9 @@ const DataComponent = () => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <>
-      <NavigationHeader />
-      <div className="card">
+    <div className="data-component">
+      <StatusComponent />
+      {/* <div className="card">
         <div className="card-header">Backend response</div>
         <div className="card-body">
           <h5>Server is alive</h5>
@@ -52,8 +52,8 @@ const DataComponent = () => {
             Update Status
           </button>
         </div>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 

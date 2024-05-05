@@ -1,4 +1,4 @@
-import DataComponent from "./components/DataComponent";
+import MainComponent from "./components/MainComponent";
 import UserLogin from "./components/UserLogin";
 import "./App.css";
 import { useState } from "react";
@@ -23,7 +23,7 @@ const App = () => {
       <LoginContext.Provider
         value={{ loginData, setLoginData, onLogin, onLogout }}
       >
-        {isLoggedIn ? <DataComponent /> : <UserLogin />}
+        {isLoggedIn ? <MainComponent /> : <UserLogin />}
       </LoginContext.Provider>
     </div>
   );
