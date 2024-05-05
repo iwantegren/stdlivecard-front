@@ -6,11 +6,13 @@ const StatusComponent = () => {
       <img
         className="mx-3 my-5"
         src={DragonfruitLogo}
-        alt="Health Logo"
+        alt="Dragonfruit Logo"
         width={200}
         height={200}
       />
-      <div className="text-center">To be done...</div>
+      <div className="text-center">
+        <b>To be done...</b>
+      </div>
     </div>
   );
 };

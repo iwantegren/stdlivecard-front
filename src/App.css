@@ -19,7 +19,6 @@ body {
 
 .data-component {
   flex-grow: 1;
-  overflow-y: auto;
   display: flex;
   flex-direction: row;
 }
@@ -30,4 +29,7 @@ body {
 }
 
 .user-display-component {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
 }
